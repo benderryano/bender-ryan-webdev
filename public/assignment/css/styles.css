@@ -27,20 +27,21 @@ body {
     margin-bottom: 60px;
 }
 
-.navbar-default {
+.navbar {
     background-color: cornflowerblue;
 }
 
-.navbar-default .navbar-brand {
+.navbar-brand {
     color: white;
 }
 
-
-
-.navbar-default .navbar-nav>li>a {  /* change navbar link color */
-    color: white;
+.ng-pagenav {
+    background-color: lightgray;
 }
 
+.ng-pagenav .navbar-brand {
+    color: black;
+}
 
 /*
 .list-group-item {
@@ -83,8 +84,8 @@ body {
 
 .list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
     z-index: 2;
-    color: #fff;
-    background-color: #6495ed;
-    border-color: rgb(100, 149, 237);
+    color: white;
+    background-color: cornflowerblue;
+    border-color: cornflowerblue;
 }
 
