@@ -28,12 +28,19 @@ body {
 }
 
 .navbar-default {
-    background-color: darkblue;
+    background-color: cornflowerblue;
 }
 
 .navbar-default .navbar-brand {
     color: white;
 }
+
+
+
+.navbar-default .navbar-nav>li>a {  /* change navbar link color */
+    color: white;
+}
+
 
 /*
 .list-group-item {
@@ -73,3 +80,11 @@ body {
     border-bottom-left-radius: 10px;
     opacity: 0.8;
 }
+
+.list-group-item.active, .list-group-item.active:focus, .list-group-item.active:hover {
+    z-index: 2;
+    color: #fff;
+    background-color: #6495ed;
+    border-color: rgb(100, 149, 237);
+}
+
