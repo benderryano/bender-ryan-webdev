@@ -8,5 +8,5 @@
 
 [Project Link](https://bender-ryan-webdev.herokuapp.com/project/index.html)
 
-[Assignment Link](https://bender-ryan-webdev.herokuapp.com/project/index.html)
+[Assignment Link](https://bender-ryan-webdev.herokuapp.com/assignment/index.html)
 
