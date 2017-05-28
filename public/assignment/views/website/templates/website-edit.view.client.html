@@ -1,0 +1,77 @@
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-header pull-left">
+        <a class="navbar-brand glyphicon glyphicon-chevron-left" href="#!/user/{{model.userId}}/website"></a>
+        <a class="navbar-brand" href="#">New Website</a>
+    </div>
+    <div class="navbar-header pull-right">
+        <a ng-click="model.updateWebsite(model.website)"
+           class="navbar-brand glyphicon glyphicon-ok"></a>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-4 hidden-xs srollable-left">
+            <ul class="list-group">
+                <li class="list-group-item active">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-8 col-sm-11 col-xs-6">
+                            Website Name
+                        </div>
+                        <div class="col-lg-1 col-md-2 pull-right">
+                            <a href="#!/user/{{model.userId}}/website/new" style="color: #fff;">
+                                <span class="glyphicon glyphicon-plus pull-right"></span>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+
+
+                <li ng-repeat="websites in model.websites" class="list-group-item">
+                    <div class="row">
+                        <div class="col-lg-5 col-md-8 col-sm-11 col-xs-6">
+                            <a href="../../page/page-list.html">
+                                {{websites.name}}
+                            </a>
+                        </div>
+
+                        <div class="col-lg-1 col-md-2 pull-right">
+                            <a class="glyphicon glyphicon-cog"
+                               href="#!/user/{{model.userId}}/website/{{websites._id}}"></a>
+                        </div>
+
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="col-xs-12 col-sm-8">
+            <label for="name">Name</label>
+            <input id="name"
+                   ng-model="model.website.name"
+                   class="form-control"/>
+
+            <label for="description">Description</label>
+            <textarea id="description"
+                      ng-model="model.website.description"
+                      rows="5"
+                      class="form-control"></textarea>
+
+            <a ng-click="model.updateWebsite(model.website)"
+               class="btn btn-block btn-success">
+                Update
+            </a>
+
+            <a ng-click="model.deleteWebsite(model.websiteId)"
+               class="btn btn-block btn-danger">
+                Delete
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="navbar navbar-fixed-bottom">
+    <div class="navbar-header pull-right">
+        <a class="navbar-brand glyphicon glyphicon-user" href="#!/user/{{model.userId}}"></a>
+    </div>
+</div>

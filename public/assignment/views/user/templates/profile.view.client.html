@@ -1,0 +1,54 @@
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-header pull-left">
+        <a class="navbar-brand" href="#">Profile</a>
+    </div>
+    <div class="navbar-header pull-right">
+        <a class="navbar-brand glyphicon glyphicon-ok" href=href="#!/user/{{model.user._id}}"></a>
+    </div>
+</div>
+
+
+    <div class="container-fluid">
+
+        <label for="username">Username</label>
+        <input readonly
+               ng-model="model.user.username"
+               value="testExample"
+               id="username"
+               class="form-control"/>
+
+        <label>Password</label>
+        <input type="password"
+               class="form-control"/>
+
+        <label>Verify Password</label>
+        <input type="password"
+               class="form-control"/>
+
+        <label>Email</label>
+        <input type="email"
+               ng-model="model.user.email"
+               class="form-control"/>
+
+        <label>First Name</label>
+        <input ng-model="model.user.firstName"
+               class="form-control"/>
+
+        <label>Last Name</label>
+        <input ng-model="model.user.lastName"
+               class="form-control"/>
+
+
+
+        <a href="#!/user/{{model.user._id}}/website"
+           class="btn btn-block btn-primary">Websites</a>
+
+        <a href="#!/login" class="btn btn-block btn-danger">Logout</a>
+    </div>
+
+
+<div class="navbar navbar-fixed-bottom">
+    <div class="navbar-header pull-right">
+        <a class="navbar-brand glyphicon glyphicon-user" href="#!/user/{{model.user._id}}"></a>
+    </div>
+</div>
