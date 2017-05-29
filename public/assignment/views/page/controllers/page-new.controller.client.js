@@ -1,28 +1,29 @@
 (function () {
     angular
         .module('WAM')
-        .controller('websiteNewController', websiteNewController);
+        .controller('pageNewController', pageNewController);
     
-    function websiteNewController($routeParams,
-                                  websiteService,
+    function pageNewController($routeParams,
+                                  pageService,
                                   $location) {
 
         var model = this;
+        model.pageId = $routeParams['pageId'];
         model.userId = $routeParams['userId'];
+        model.websiteId = $routeParams['websiteId'];
 
         // event handlers
-        model.createWebsite = createWebsite;
+        model.createPage = createPage;
 
         function init() {
-            model.websites = websiteService.findAllWebsitesForUser(model.userId);
+            model.pages = pageService.findAllPagesForWebsite(model.websiteId);
         }
         init();
 
         // implementation
-        function createWebsite(website) {
-            website.developerId = model.userId;
-            websiteService.createWebsite(website);
-            $location.url('/user/'+model.userId+'/website');
+        function createPage(websiteId, page) {
+            pageService.createPage(websiteId, page);
+            $location.url('/user/'+model.userId+'/website/'+model.websiteId+'/page');
         }
     }
 })();

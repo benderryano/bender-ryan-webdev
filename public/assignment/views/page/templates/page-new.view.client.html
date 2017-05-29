@@ -1,10 +1,11 @@
 <div class="navbar navbar-fixed-top ng-pagenav">
     <div class="navbar-header pull-left">
-        <a class="navbar-brand glyphicon glyphicon-chevron-left" href="page-list.html"></a>
+        <a class="navbar-brand glyphicon glyphicon-chevron-left" href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page"></a>
         <a class="navbar-brand" href="#">New Page</a>
     </div>
     <div class="navbar-header pull-right">
-        <a class="navbar-brand glyphicon glyphicon-ok" href="page-list.html"></a>
+        <a ng-click="model.newPage(model.page)"
+           class="navbar-brand glyphicon glyphicon-ok" ></a>
     </div>
 </div>
 
@@ -18,110 +19,56 @@
                             Page Name
                         </div>
                         <div class="col-lg-1 col-md-2 pull-right">
-                            <a class="glyphicon glyphicon-plus" href="page-new.html"></a>
+                            <a class="glyphicon glyphicon-plus"
+                               href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/new"
+                               style="color: #fff;"></a>
                         </div>
                     </div>
                 </li>
 
 
-                <li class="list-group-item">
+                <li ng-repeat="pages in model.pages" class="list-group-item">
                     <div class="row">
-                        <div class="col-lg-5 col-md-11 col-sm-11 col-xs-6">
-                            <a href="../widget/widget-list.html">
-                                Homepage
+                        <div class="col-lg-5 col-md-8 col-sm-11 col-xs-6">
+                            <a href="../../page/templates/page-list.view.client.html">
+                                {{pages.name}}
                             </a>
                         </div>
 
                         <div class="col-lg-1 col-md-2 pull-right">
-                            <a class="glyphicon glyphicon-cog" href="page-edit.html"></a>
-                        </div>
-
-                    </div>
-                </li>
-
-                <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-lg-5 col-md-11 col-sm-11 col-xs-6">
-                            <a href="../widget/widget-list.html">
-                                Dapibus ac facilisis in
+                            <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}">
+                                <span class="glyphicon glyphicon-cog pull-right"></span>
                             </a>
                         </div>
 
-                        <div class="col-lg-1 col-md-2 pull-right">
-                            <a class="glyphicon glyphicon-cog" href="page-edit.html"></a>
-                        </div>
-
                     </div>
                 </li>
-
-                <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-lg-5 col-md-11 col-sm-11 col-xs-6">
-                            <a href="../widget/widget-list.html">
-                                Morbi leo risus
-                            </a>
-                        </div>
-
-                        <div class="col-lg-1 col-md-2 pull-right">
-                            <a class="glyphicon glyphicon-cog" href="page-edit.html"></a>
-                        </div>
-
-                    </div>
-                </li>
-
-                <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-lg-5 col-md-11 col-sm-11 col-xs-6">
-                            <a href="../widget/widget-list.html">
-                                Porta ac consectetur ac
-                            </a>
-                        </div>
-
-                        <div class="col-lg-1 col-md-2 pull-right">
-                            <a class="glyphicon glyphicon-cog" href="page-edit.html"></a>
-                        </div>
-
-                    </div>
-                </li>
-
-                <li class="list-group-item">
-                    <div class="row">
-                        <div class="col-lg-5 col-md-11 col-sm-11 col-xs-6">
-                            <a href="../widget/widget-list.html">
-                                Vestibulum at eros
-                            </a>
-                        </div>
-
-                        <div class="col-lg-1 col-md-2 pull-right">
-                            <a class="glyphicon glyphicon-cog" href="page-edit.html"></a>
-                        </div>
-
-                    </div>
-                </li>
-
-
             </ul>
         </div>
+
         <div class="col-xs-12 col-sm-8">
             <label for="name">Name</label>
             <input id="name"
+                   ng-model="page.name"
                    class="form-control"/>
 
             <label for="description">Description</label>
             <textarea id="description"
+                      ng-model="page.description"
                       rows="5"
                       class="form-control"></textarea>
 
-            <a href="page-list.html"
-               class="btn btn-block btn-danger">
-                Delete
+            <a ng-click="model.createPage(model.websiteId, model.page)"
+               class="btn btn-block btn-success">
+                Create
             </a>
+
         </div>
     </div>
 </div>
 
 <div class="navbar navbar-fixed-bottom ng-pagenav">
     <div class="navbar-header pull-right">
-        <a class="navbar-brand glyphicon glyphicon-user" href="../user/profile.html"></a>
+        <a class="navbar-brand glyphicon glyphicon-user" href="#!/user/{{model.userId}}"></a>
     </div>
 </div>
