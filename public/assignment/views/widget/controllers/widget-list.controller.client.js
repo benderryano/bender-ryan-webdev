@@ -6,6 +6,7 @@
     function widgetListController($sce) {
 
         var model = this;
+        
 
         var widgets = [
             { "_id": "123", "widgetType": "HEADING", "pageId": "321", "size": 2, "text": "GIZMODO"},
