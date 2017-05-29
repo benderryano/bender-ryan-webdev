@@ -1,10 +1,10 @@
-<div class="navbar navbar-fixed-top">
+<div class="navbar navbar-fixed-top ng-pagenav">
     <div class="navbar-header pull-left">
-        <a class="navbar-brand glyphicon glyphicon-chevron-left" href="#!/user/{{model.userId}}"></a>
-        <a class="navbar-brand" href="#">Websites</a>
+        <a class="navbar-brand glyphicon glyphicon-chevron-left" href="#!/user/{{model.userId}}/website"></a>
+        <a class="navbar-brand" href="#">Pages</a>
     </div>
     <div class="navbar-header pull-right">
-        <a class="navbar-brand glyphicon glyphicon-plus" href="#!/user/{{model.userId}}/website/new"></a>
+        <a class="navbar-brand glyphicon glyphicon-plus" href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/new"></a>
     </div>
 </div>
 
@@ -13,7 +13,7 @@
         <li class="list-group-item active">
             <div class="row">
                 <div class="col-lg-5 col-md-8 col-sm-11 col-xs-11">
-                    Website Name
+                    Page Name
                 </div>
                 <div class="col-lg-3 visible-lg">
                     Created
@@ -22,28 +22,29 @@
                     Updated
                 </div>
                 <div class="col-sm-1">
-                    <a href="#!/user/{{model.userId}}/website/new" style="color: #fff;">
+                    <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/new" style="color: #fff;">
                         <span class="glyphicon glyphicon-plus pull-right"></span>
                     </a>
                 </div>
             </div>
         </li>
 
-        <li ng-repeat="website in model.websites" class="list-group-item">
+
+        <li ng-repeat="page in model.pages" class="list-group-item">
             <div class="row">
                 <div class="col-lg-5 col-md-8 col-sm-11 col-xs-11">
-                    <a href="#!/user/{{model.userId}}/website/{{website._id}}/page">
-                        {{website.name}}
+                    <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}/widget">
+                        {{page.name}}
                     </a>
                 </div>
                 <div class="col-lg-3 visible-lg">
-                    {{website.created | date}}
+                    {{page.created | date}}
                 </div>
                 <div class="col-md-3 hidden-sm  hidden-xs">
-                    {{website.updated | date}}
+                    {{page.updated | date}}
                 </div>
                 <div class="col-sm-1">
-                    <a href="#!/user/{{model.userId}}/website/{{website._id}}">
+                    <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}">
                         <span class="glyphicon glyphicon-cog pull-right"></span>
                     </a>
                 </div>
@@ -52,7 +53,7 @@
     </ul>
 </div>
 
-<div class="navbar navbar-fixed-bottom">
+<div class="navbar navbar-fixed-bottom ng-pagenav">
     <div class="navbar-header pull-right">
         <a class="navbar-brand glyphicon glyphicon-user" href="#!/user/{{model.userId}}"></a>
     </div>

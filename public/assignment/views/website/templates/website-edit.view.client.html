@@ -1,7 +1,7 @@
 <div class="navbar navbar-fixed-top">
     <div class="navbar-header pull-left">
         <a class="navbar-brand glyphicon glyphicon-chevron-left" href="#!/user/{{model.userId}}/website"></a>
-        <a class="navbar-brand" href="#">New Website</a>
+        <a class="navbar-brand" href="#">Edit Website</a>
     </div>
     <div class="navbar-header pull-right">
         <a ng-click="model.updateWebsite(model.website)"
@@ -30,7 +30,7 @@
                 <li ng-repeat="websites in model.websites" class="list-group-item">
                     <div class="row">
                         <div class="col-lg-5 col-md-8 col-sm-11 col-xs-6">
-                            <a href="../../page/page-list.html">
+                            <a href="../../page/templates/page-list.view.client.html">
                                 {{websites.name}}
                             </a>
                         </div>

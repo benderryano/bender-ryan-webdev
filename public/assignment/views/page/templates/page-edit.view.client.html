@@ -1,11 +1,10 @@
-<div class="navbar navbar-fixed-top">
+<div class="navbar navbar-fixed-top ng-pagenav">
     <div class="navbar-header pull-left">
-        <a class="navbar-brand glyphicon glyphicon-chevron-left" href="#!/user/{{model.userId}}/website"></a>
-        <a class="navbar-brand" href="#">New Website</a>
+        <a class="navbar-brand glyphicon glyphicon-chevron-left" href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page"></a>
+        <a class="navbar-brand" href="#">Edit Page</a>
     </div>
     <div class="navbar-header pull-right">
-        <a ng-click="model.createWebsite(website)
-        class="navbar-brand glyphicon glyphicon-ok"></a>
+        <a class="navbar-brand glyphicon glyphicon-ok" ng-click="model.updatePage(model.page)"></a>
     </div>
 </div>
 
@@ -16,55 +15,62 @@
                 <li class="list-group-item active">
                     <div class="row">
                         <div class="col-lg-5 col-md-8 col-sm-11 col-xs-6">
-                            Website Name
+                            Page Name
                         </div>
                         <div class="col-lg-1 col-md-2 pull-right">
-                            <a href="#!/user/{{model.userId}}/website/new" style="color: #fff;">
-                                <span class="glyphicon glyphicon-plus pull-right"></span>
-                            </a>
+                            <a class="glyphicon glyphicon-plus"
+                               href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/new"
+                               style="color: #fff;"></a>
                         </div>
                     </div>
                 </li>
 
 
-                <li ng-repeat="websites in model.websites" class="list-group-item">
+                <li ng-repeat="pages in model.pages" class="list-group-item">
                     <div class="row">
                         <div class="col-lg-5 col-md-8 col-sm-11 col-xs-6">
                             <a href="../../page/templates/page-list.view.client.html">
-                                {{websites.name}}
+                                {{pages.name}}
                             </a>
                         </div>
 
                         <div class="col-lg-1 col-md-2 pull-right">
-                            <a class="glyphicon glyphicon-cog"
-                               href="#!/user/{{model.userId}}/website/{{websites._id}}"></a>
+                            <a href="#!/user/{{model.userId}}/website/{{model.websiteId}}/page/{{page._id}}">
+                                <span class="glyphicon glyphicon-cog pull-right"></span>
+                            </a>
                         </div>
 
                     </div>
                 </li>
             </ul>
         </div>
+
         <div class="col-xs-12 col-sm-8">
             <label for="name">Name</label>
             <input id="name"
-                   ng-model="website.name"
+                   ng-model="model.name"
                    class="form-control"/>
 
             <label for="description">Description</label>
             <textarea id="description"
-                      ng-model="website.description"
+                      ng-model="model.description"
                       rows="5"
                       class="form-control"></textarea>
 
-            <a ng-click="model.createWebsite(website)"
+            <a ng-click="model.updatePage(model.page)"
                class="btn btn-block btn-success">
-                Create
+                Update
+            </a>
+
+            <a ng-click="model.deletePage(model.pageId)"
+               class="btn btn-block btn-danger">
+                Delete
             </a>
         </div>
     </div>
 </div>
 
-<div class="navbar navbar-fixed-bottom">
+<div class="navbar navbar-fixed-bottom ng-pagenav">
     <div class="navbar-header pull-right">
         <a class="navbar-brand glyphicon glyphicon-user" href="#!/user/{{model.userId}}"></a>
     </div>
